@@ -7,6 +7,7 @@ import Home from './pages/Home.jsx';
 import Cart from './pages/Cart.jsx';
 import RestaurantMenu from './pages/RestaurantMenu.jsx';
 import ErrorDisplay from './components/ErrorDisplay.jsx';
+import About from './pages/About.jsx';
 
 const appRouter = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const appRouter = createBrowserRouter([
         path: '/restaurants/:resId',
         element: <RestaurantMenu />,
       },
+      {
+        path:'/about',
+        element:<About/>
+      }
     ],
     // not found page
     errorElement: <ErrorDisplay />,
