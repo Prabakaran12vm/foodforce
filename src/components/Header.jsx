@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
   return (
-    <div className="navbar  bg-[#ff5200] text-white font-swig">
+    <div className="navbar max-h-[30px]  bg-[#ff5200] text-white font-swig pr-[40px]">
       <div className="flex-1">
         <motion.div
           whileHover={{
@@ -33,7 +33,7 @@ const Header = () => {
       </div>
       <div className="flex-none">
         {/* link1 */}
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-2">
           <li>
             <Link to="/" className="btn btn-ghost ">
               Home
@@ -41,17 +41,16 @@ const Header = () => {
           </li>
         </ul>
         {/* link 2 */}
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-2">
           <li>
-            <Link to="" className="btn btn-ghost ">
+            <Link to="/about" className="btn btn-ghost ">
               About
             </Link>
           </li>
         </ul>
 
-
         {/* cart */}
-        <div className="dropdown dropdown-end">
+        <div className="dropdown dropdown-end px-2">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <Link to="/cart">
               <div className="indicator">
