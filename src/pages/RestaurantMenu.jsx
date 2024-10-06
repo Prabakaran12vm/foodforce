@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Shimmer from '../components/skeleton/Shimmer';
 import RestaurantCategory from '../components/RestaurantCategory';
 import useRestaurantMenu from '../hooks/useRestaurantMenu';
+import { FaStar } from "react-icons/fa";
 
 const RestaurantMenu = () => {
   // const [resInfo, setResInfo] = useState(null);
@@ -17,7 +18,7 @@ const RestaurantMenu = () => {
   // if (resInfo === null)
   if (!resInfo) return <Shimmer />;
 
-  const { name, cuisines, costForTwoMessage } =
+  const { name, cuisines, costForTwoMessage,avgRating } =
     resInfo?.data?.cards[2]?.card?.card?.info || {};
 
   // console.log('name', name, 'cuisines', cuisines, 'costForTwoMessage', costForTwoMessage);
@@ -42,11 +43,14 @@ const RestaurantMenu = () => {
   // console.log("categories", categories);
 
   return (
-    <div className='text-center bg-rgb(255, 255, 255)'>
-      <h1 className='font-bold my-5 text-2xl'>{name}</h1>
-      <p className='font-bold text-lg'>
+    <div className='text-center '>
+      <div className='ml-[250px] px-10 mt-0 pt-0 bg-gray-800 rounded-b-full shadow-xl shadow-gray-300 text-white items-center w-[650px] h-[150px] '>
+      <h1 className='font-bold pt-6 text-2xl'>{name}</h1>
+      <p className='pt-3  font-light '>
         {cuisines.join(', ')} - {costForTwoMessage}
       </p>
+      <h2 className='flex pt-3 pl-[250px] gap-1'><FaStar/>{avgRating}</h2>
+      </div>
       {/* categories accordions */}
       {categories.map((category, index) => (
         // Restaurant category is a controlled component
