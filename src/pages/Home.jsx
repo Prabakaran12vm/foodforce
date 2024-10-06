@@ -68,20 +68,21 @@ const Home = () => {
   return !restaurantList?.length ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="flex">
-        <div className="m-4 p-4">
+    <div className="body  bg-rgb(255, 255, 255)">
+      <div className="flex items-center  ml-[300px]">
+        <div className="m-4 p-4 ">
           <input
             data-testid="searchInput"
             type="text"
-            className="border border-solid border-black"
+            placeholder="Search"
+            className="border-[1.5px] pl-2 rounded-xl w-[350px] h-[30px] border-solid  border-gray-400"
             value={searchText}
             onChange={(event) => {
               setSearchText(event.target.value);
             }}
           />
           <button
-            className="px-4 py-2 m-4 bg-green-100 rounded-lg"
+            className=" p-4 py-2 m-4  bg-[#ff5200] text-white rounded-xl"
             onClick={() => {
               // Filter the res and update the UI
               // search text
@@ -97,8 +98,8 @@ const Home = () => {
             Search
           </button>
         </div>
-        <div className="form-control px-4 items-center ">
-          <button className="bg-[#ff5200] rounded-xl ">
+        <div className="form-control  pl-[120px] mr-0 ">
+          <button className="bg-[#ff5200] rounded-xl pl-1 ">
           <label className="label cursor-pointer">
             <span className="label-text text-white">Top Rated</span>
             <input
@@ -127,23 +128,18 @@ const Home = () => {
           /> */}
         </div>
       </div>
-      <div className="m-5 flex flex-wrap justify-between">
+      <div className="p-[20px]  grid grid-cols-4  gap-[10px] pt-[10px] ">
         {filteredRestaurant?.map((restaurant) => (
           <Link
             key={restaurant.info.id}
             to={`restaurants/${restaurant.info.id}`}
           >
             {/* if a delivery time is less than 30mins add speedy label*/}
-            {console.log(
-              "restaurant.info.sla.deliveryTime",
-              restaurant?.info?.sla?.deliveryTime <= 30
-            )}
+           
 
-            {restaurant.info.sla.deliveryTime <= 30 ? (
-              <RestaurantCardSpeedy resData={restaurant} />
-            ) : (
+            
               <RestaurantCard resData={restaurant} />
-            )}
+            
 
             {/* {
             restaurant.info.sla.deliveryTime < 26 ? <RestaurantCardSpeedy resData={restaurant} /> : <RestaurantCard resData={restaurant} />
